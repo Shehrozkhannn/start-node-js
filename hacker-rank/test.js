@@ -54,43 +54,43 @@
 
 // CAMEL CASE PROBLEM BY SPLITTING AND COMBINING
 
-function processData(input){
-  let result;
-  const [operation , type , word] = input.split(';').slice(0,3);
-  if(operation === 'C'){
-    if(type === 'V'){
-      result = word.split(' ')
-      .map((word, index) => 
-        index === 0 
-          ? word.toLowerCase()
-          : word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
-      )
-      .join('')
-    } else if(type === 'C'){
-       result = word.split(' ').map((word)=> word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ')
-    } else if(type === 'M'){
-      result = word.split(' ')
-      .map((word, index) => 
-        index === 0 
-          ? word.toLowerCase()
-          : word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
-      ).join('').concat('()')
-    }
-    console.log(result)
-  } else if(operation === 'S'){
-    result = word.split('').map((char,index)=> {
-      if(char === char.toUpperCase()){
-        if(index !== 0){
-          char = ' ' + char
-        }
-        return char.toLowerCase();
-      }
-      return char
-    }).join('')
-    if(result[result.length -1] === ')'){
-      result = result.slice(0,-3)
-    }
-  }
-}
+// function processData(input){
+//   let result;
+//   const [operation , type , word] = input.split(';').slice(0,3);
+//   if(operation === 'C'){
+//     if(type === 'V'){
+//       result = word.split(' ')
+//       .map((word, index) => 
+//         index === 0 
+//           ? word.toLowerCase()
+//           : word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+//       )
+//       .join('')
+//     } else if(type === 'C'){
+//        result = word.split(' ').map((word)=> word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ')
+//     } else if(type === 'M'){
+//       result = word.split(' ')
+//       .map((word, index) => 
+//         index === 0 
+//           ? word.toLowerCase()
+//           : word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+//       ).join('').concat('()')
+//     }
+//     console.log(result)
+//   } else if(operation === 'S'){
+//     result = word.split('').map((char,index)=> {
+//       if(char === char.toUpperCase()){
+//         if(index !== 0){
+//           char = ' ' + char
+//         }
+//         return char.toLowerCase();
+//       }
+//       return char
+//     }).join('')
+//     if(result[result.length -1] === ')'){
+//       result = result.slice(0,-3)
+//     }
+//   }
+// }
 
-processData('C;M;mouse pad')
+// processData('C;M;mouse pad')
