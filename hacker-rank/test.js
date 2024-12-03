@@ -94,3 +94,22 @@
 // }
 
 // processData('C;M;mouse pad')
+
+// DIVISIBLE SUM PAIRS PROBLEM 
+
+
+function divisibleSumPairs(n,k,ar){
+  const result = [];
+  for (let i = 0; i < ar.length; i++) {
+    for (let j = 1; j < ar.length; j++) {
+      if((ar[i] + ar[j]) % k === 0){
+        result.push([ar[i], ar[j]]);
+      }
+    }
+  }
+  return result
+}
+
+const arry = [1,2,3,4,5,6];
+console.log(divisibleSumPairs(arry.length, 5, arry));
+
