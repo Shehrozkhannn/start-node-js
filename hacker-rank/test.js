@@ -98,23 +98,40 @@
 // DIVISIBLE SUM PAIRS PROBLEM 
 
 
-function divisibleSumPairs(n,k,ar){
-  // const result = [];
-  let count = 0;
-  for (let i = 0; i < ar.length; i++) {
-    for (let j = i+1; j < ar.length; j++) {
-      if((ar[i] + ar[j]) % k === 0){
-        // result.push([ar[i], ar[j]]);
-        count++
-      }
-    }
-  }
-  return count;
-}
+// function divisibleSumPairs(n,k,ar){
+//   // const result = [];
+//   let count = 0;
+//   for (let i = 0; i < ar.length; i++) {
+//     for (let j = i+1; j < ar.length; j++) {
+//       if((ar[i] + ar[j]) % k === 0){
+//         // result.push([ar[i], ar[j]]);
+//         count++
+//       }
+//     }
+//   }
+//   return count;
+// }
 
-const arry = [1,2,3,4,5,6];
-console.log(divisibleSumPairs(arry.length, 5, arry));
+// const arry = [1,2,3,4,5,6];
+// console.log(divisibleSumPairs(arry.length, 5, arry));
 
 //GLOBAL EXECUTION CONTEXT
 // FUNCTION SCOPE CONTEXT (LOCAL SCOPE)
+
+
+//ANOTHER WAY with 0(n) complexity
+
+function divisibleSumPairs(n, k, ar) {
+  const remainderCounts = Array(k).fill(0);
+  let count = 0;
+  for (let i = 0; i < n; i++) {
+      const remainder = ar[i] % k;
+      const complement = (k - remainder) % k;
+      count += remainderCounts[complement];
+      remainderCounts[remainder]++;
+  }
+  return count;
+}
+const arry = [1, 2, 3, 4, 5, 6];
+console.log(divisibleSumPairs(arry.length, 5, arry))
 
