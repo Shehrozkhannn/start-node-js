@@ -99,17 +99,22 @@
 
 
 function divisibleSumPairs(n,k,ar){
-  const result = [];
+  // const result = [];
+  let count = 0;
   for (let i = 0; i < ar.length; i++) {
-    for (let j = 1; j < ar.length; j++) {
+    for (let j = i+1; j < ar.length; j++) {
       if((ar[i] + ar[j]) % k === 0){
-        result.push([ar[i], ar[j]]);
+        // result.push([ar[i], ar[j]]);
+        count++
       }
     }
   }
-  return result
+  return count;
 }
 
 const arry = [1,2,3,4,5,6];
 console.log(divisibleSumPairs(arry.length, 5, arry));
+
+//GLOBAL EXECUTION CONTEXT
+// FUNCTION SCOPE CONTEXT (LOCAL SCOPE)
 
