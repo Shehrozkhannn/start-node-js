@@ -121,17 +121,17 @@
 
 //ANOTHER WAY with 0(n) complexity
 
-function divisibleSumPairs(n, k, ar) {
-  const remainderCounts = Array(k).fill(0);
-  let count = 0;
-  for (let i = 0; i < n; i++) {
-      const remainder = ar[i] % k;
-      const complement = (k - remainder) % k;
-      count += remainderCounts[complement];
-      remainderCounts[remainder]++;
-  }
-  return count;
-}
-const arry = [1, 2, 3, 4, 5, 6];
-console.log(divisibleSumPairs(arry.length, 5, arry))
+// function divisibleSumPairs(n, k, ar) {
+//   const remainderCounts = Array(k).fill(0);
+//   let count = 0;
+//   for (let i = 0; i < n; i++) {
+//       const remainder = ar[i] % k;
+//       const complement = (k - remainder) % k;
+//       count += remainderCounts[complement];
+//       remainderCounts[remainder]++;
+//   }
+//   return count;
+// }
+// const arry = [1, 2, 3, 4, 5, 6];
+// console.log(divisibleSumPairs(arry.length, 5, arry))
 
