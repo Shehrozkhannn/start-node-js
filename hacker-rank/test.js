@@ -161,8 +161,24 @@
 
 
 //WITH MAP
-function matchStrings (strings , queries){
-    const res = queries.map(query => strings.filter((val)=> query === val).length);
-    return res
+// function matchStrings (strings , queries){
+//     const res = queries.map(query => strings.filter((val)=> query === val).length);
+//     return res
+// }
+// matchStrings(['ab','ab','abc'], ['ab','abc','bc']);
+
+//WITH REDUCE
+function matchStrings(strings, queries) {
+    // Create a frequency map for strings
+    const frequencyMap = strings.reduce((map, str) => {
+        map[str] = (map[str] || 0) + 1;
+        return map;
+    }, {});
+    
+    // Map each query to its count using the frequency map
+    return queries.map(query => frequencyMap[query] || 0);
 }
-matchStrings(['ab','ab','abc'], ['ab','abc','bc']);
+
+const output = matchStrings(['ab', 'ab', 'abc'], ['ab', 'abc', 'bc']);
+console.log(output); // Output: [2, 1, 0]
+
