@@ -137,13 +137,24 @@
 
 // query matching problem 
 
+// function matchStrings (strings , queries){
+//     const result = [];
+//     for (let i = 0; i < queries.length; i++) {
+//     const matchedStr = strings.filter((val)=> queries[i] === val).length
+//     result.push(matchedStr)
+//     }
+//     console.log(result)
+    
+// }
+// matchStrings(['ab','ab','abc'], ['ab','abc','bc']);
+
+//WITH FOREACH
 function matchStrings (strings , queries){
     const result = [];
-    for (let i = 0; i < queries.length; i++) {
-    const matchedStr = strings.filter((val)=> queries[i] === val).length
-    result.push(matchedStr)
-    }
+    queries.forEach(query => {     
+        const matchedStr = strings.filter((val)=> query === val).length
+        result.push(matchedStr)
+    });
     console.log(result)
-    
 }
 matchStrings(['ab','ab','abc'], ['ab','abc','bc']);
