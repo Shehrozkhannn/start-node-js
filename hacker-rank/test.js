@@ -149,12 +149,20 @@
 // matchStrings(['ab','ab','abc'], ['ab','abc','bc']);
 
 //WITH FOREACH
+// function matchStrings (strings , queries){
+//     const result = [];
+//     queries.forEach(query => {     
+//         const matchedStr = strings.filter((val)=> query === val).length
+//         result.push(matchedStr)
+//     });
+//     console.log(result)
+// }
+// matchStrings(['ab','ab','abc'], ['ab','abc','bc']);
+
+
+//WITH MAP
 function matchStrings (strings , queries){
-    const result = [];
-    queries.forEach(query => {     
-        const matchedStr = strings.filter((val)=> query === val).length
-        result.push(matchedStr)
-    });
-    console.log(result)
+    const res = queries.map(query => strings.filter((val)=> query === val).length);
+    return res
 }
 matchStrings(['ab','ab','abc'], ['ab','abc','bc']);
