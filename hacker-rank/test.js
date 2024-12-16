@@ -135,3 +135,15 @@
 // const arry = [1, 2, 3, 4, 5, 6];
 // console.log(divisibleSumPairs(arry.length, 5, arry))
 
+// query matching problem 
+
+function matchStrings (strings , queries){
+    const result = [];
+    for (let i = 0; i < queries.length; i++) {
+    const matchedStr = strings.filter((val)=> queries[i] === val).length
+    result.push(matchedStr)
+    }
+    console.log(result)
+    
+}
+matchStrings(['ab','ab','abc'], ['ab','abc','bc']);
